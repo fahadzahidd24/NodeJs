@@ -5,8 +5,7 @@ const path = require('path')
 const adminData = require('./admin')
 
 router.get('/',(req,res,next)=>{
-    console.log(adminData.products)
-    res.sendFile(path.join(pathDir, 'views', 'shop.html'))
+    res.render('shop', {prods: adminData.products, pageTitle: 'Shop', path: '/'})
 })
 
 module.exports = router;

@@ -4,14 +4,14 @@ const path = require('path');
 const pathDir = require('../util/path')
 
 const products = []
-router.get('/add-product',(req,res,next)=>{
-    res.sendFile(path.join(pathDir, 'views', 'add-product.html'))
+router.get('/add-product', (req, res, next) => {
+    res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product' });
 });
 
-router.post('/add-product', (req,res,next)=>{
-    products.push({title:req.body.title})
+router.post('/add-product', (req, res, next) => {
+    products.push({ title: req.body.title })
     res.redirect('/');
-    
+
 })
 
 exports.routes = router;
